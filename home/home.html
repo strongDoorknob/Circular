@@ -50,7 +50,15 @@
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(label, node.x, node.y);
+
       })
+      .onNodeClick(function(d){
+        console.log(d)
+        window.location.href = '/Users/michio/Downloads/Circular/settings/settings.html';}
+      )
+      // ctx.on('click',(ctx)=>{
+        //   console.log('Hell yeah!')
+        // })
   </script>
 </body>
 
