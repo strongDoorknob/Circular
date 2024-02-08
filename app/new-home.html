@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            margin: 0;
+            background-color: #3d3a3a;
+        }
+    </style>
+
+    <script src="//unpkg.com/force-graph"></script>
+    <!--  <script src="../../dist/force-graph.js"></script>-->
+
+    <style>
+        .clickable {
+            cursor: unset !important
+        }
+    </style>
+</head>
+
+<body>
+    <div id="graph"></div>
+
+    <script>
+        const rootId = 0;
+
+        // Random tree
+        const N = 300;
+        const gData = {
+            nodes: [
+                { id: 1, label: 'Home', collapsed: false, childLinks: [] },
+                { id: 2, label: 'Settings', collapsed: true, childLinks: [] },
+                { id: 3, label: 'Personal', collapsed: true, childLinks: [] }],
+            links: [
+                { source: 1, target: 2 },
+                { source: 1, target: 3 }
+            ]
+                .filter(id => id)
+                .map(id => ({
+                    source: Math.round(Math.random() * (id - 1)),
+                    target: id
+                }))
+        };
+
+        // link parent/children
+        const nodesById = Object.fromEntries(gData.nodes.map(node => [node.id, node]));
+        gData.links.forEach(link => {
+            nodesById[link.source].childLinks.push(link);
+        });
+
+        const getPrunedTree = () => {
+            const visibleNodes = [];
+            const visibleLinks = [];
+
+            (function traverseTree(node = nodesById[rootId]) {
+                visibleNodes.push(node);
+                if (node.collapsed) return;
+                visibleLinks.push(...node.childLinks);
+                node.childLinks
+                    .map(link => ((typeof link.target) === 'object') ? link.target : nodesById[link.target]) // get child node
+                    .forEach(traverseTree);
+            })(); // IIFE
+
+            return { nodes: visibleNodes, links: visibleLinks };
+        };
+
+        const elem = document.getElementById('graph');
+        const Graph = ForceGraph()(elem)
+            .graphData(getPrunedTree)
+            .nodeLabel((node) => node.label)
+            .onNodeClick((node) => {
+                node.collapsed = !node.collapsed;
+                Graph.graphData(getPrunedTree);
+            })
+            .linkDirectionalParticles(1)
+            .linkDirectionalParticleWidth(2.5)
+            .nodeColor((node) => node.collapsed ? 'lightgray' : 'yellow');
+    </script>
+</body>
+
+</html>
