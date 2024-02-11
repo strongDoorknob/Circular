@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,15 +10,14 @@
 <body>
   <div class="home-with-setting">
     <div class="rectangle-1"></div>
-    <div class="log-in">Log in</div>
-    <div class="info">
-      <div class="div">รหัสประจำตัวนักศึกษา</div>
-      <div class="rectangle-2"></div>
-      <div class="div2">เลขบัตรประจำตัวประชาชน</div>
-      <div class="rectangle-3"></div>
-    </div>
-    <div class="rectangle-4"></div>
-    <div class="proceed">Proceed</div>
+    <h1 class="log-in">Log in</h1>
+    <form class="info">
+      <label for="student-id">รหัสประจำตัวนักศึกษา</label>
+      <input type="text" id="student-id" name="student-id" required>
+      <label for="national-id">เลขบัตรประจำตัวประชาชน</label>
+      <input type="text" id="national-id" name="national-id" required>
+      <button type="submit" class="proceed">Proceed</button>
+    </form>
   </div>
 </body>
 
