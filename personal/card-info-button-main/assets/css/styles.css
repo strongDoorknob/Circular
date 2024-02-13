@@ -3,16 +3,16 @@
 :root {
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --first-color: hsl(175, 55%, 40%);
-  --first-color-light: hsl(175, 30%, 48%);
-  --first-color-lighten: hsl(175, 40%, 62%);
+  --first-color: #adadad;
+  --first-color-light: #c3c3c3;
+  --first-color-lighten: #d9d9d9;
   --gradient-color: linear-gradient(180deg,
-                  hsl(178, 35%, 45%),
-                  hsl(178, 55%, 28%));
-  --title-color: hsl(175, 40%, 16%);
+                  #adadad,
+                  #d9d9d9);
+  --title-color: black;
   --text-color: hsl(175, 8%, 50%);
   --white-color: #fff;
-  --body-color: hsl(175, 100%, 99%);
+  --body-color: #3d3a3a;
   
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
