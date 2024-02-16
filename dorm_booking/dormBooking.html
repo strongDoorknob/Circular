@@ -63,10 +63,10 @@
                             <tr>
                                 <td>1</td>
                                 <td>101</td>
-                                <td>Room414</td>
+                                <td>Room101</td>
                                 <td>หอพัก M</td>
                                 <td>ว่าง</td>
-                                <td>ห้องพัก 2เตียง 2ห้องน้ำ มีครัว มีระเบียง เครื่องปรับอากาศ</td>
+                                <td>ห้องพัก 1เตียง 2ห้องน้ำ มีครัว มีระเบียง เครื่องปรับอากาศ</td>
                                 <td>
                                     <button class="btn btn-success reserve-btn" data-toggle="modal" data-target="#roomDetailModal">Reserve</button>
                                 </td>
@@ -74,10 +74,10 @@
                             <tr>
                                 <td>2</td>
                                 <td>201</td>
-                                <td>Room410</td>
+                                <td>Room201</td>
                                 <td>หอพัก M</td>
                                 <td>ว่าง</td>
-                                <td>ห้องพัก 2เตียง 1ห้องน้ำ มีครัว มีระเบียง เครื่องปรับอากาศ</td>
+                                <td>ห้องพัก 1เตียง 1ห้องน้ำ มีครัว มีระเบียง เครื่องปรับอากาศ</td>
                                 <td>
                                     <button class="btn btn-success reserve-btn" data-toggle="modal" data-target="#roomDetailModal">Reserve</button>
                                 </td>
@@ -85,7 +85,7 @@
                             <tr>
                                 <td>4</td>
                                 <td>203</td>
-                                <td>Room607</td>
+                                <td>Room203</td>
                                 <td>หอพัก C06</td>
                                 <td>ว่าง</td>
                                 <td>ห้องพัก 2เตียง 1ห้องน้ำ มีครัว มีเครื่องซักผ้า เครื่องปรับอากาศ</td>
@@ -95,8 +95,8 @@
                             </tr>
                             <tr>
                                 <td>5</td>
-                                <td>203</td>
-                                <td>Room414</td>
+                                <td>410</td>
+                                <td>Room410</td>
                                 <td>หอพัก C11</td>
                                 <td>ว่าง</td>
                                 <td>ห้องพัก 1เตียง 1ห้องน้ำ มีครัว มีระเบียง เครื่องปรับอากาศ</td>
@@ -132,9 +132,9 @@
                         <div class="col-md-6">
                             <h5>Select roommate options</h5>
                             <div class="form-group">
-                                <select class="form-control" id="timeSlotSelect">
-                                    <option>Single</option>
-                                    <option>Duo</option>
+                                <select class="form-control" id="typeSlotSelect">
+                                    <option>Single (นอนคนเดียว)</option>
+                                    <option>Duo (นอนกับรูมเมท)</option>
                                 </select>
                             </div>
                         </div>
@@ -163,7 +163,7 @@
                                 <tr>
                                     <th>เลขที่ห้อง</th>
                                     <th>อาคาร</th>
-                                    <th>จองแบบมีรูมเมท</th>
+                                    <th>จองแบบมีรูมเมท (หรือไม่มี)</th>
                                     <th>จองเมื่อ</th>
                                     <th></th>
                                 </tr>
@@ -176,7 +176,7 @@
                                     <td>Single</td>
                                     <td>12:56</td>
                                     <td>
-                                        <button class="btn btn-danger" id="confirmDeleteButton">cancel bookings</button>
+                                        <button class="btn btn-danger" id="confirmDeleteButton">Cancel booking</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -200,10 +200,10 @@
 
             // Event listener for confirming reservation
             $('#confirmReservationButton').click(function () {
-                var selectedTimeSlot = $('#timeSlotSelect').val();
+                var selectedTypeSlot = $('#typeSlotSelect').val();
                 // You can implement reservation logic here
                 // For now, let's just display a message
-                alert('Your room (' + selectedTimeSlot + ') has been booked!!');
+                alert('Your room (' + selectedTypeSlot + ') has been booked!!');
                 // Close the modal
                 $('#roomDetailModal').modal('hide');
             });
